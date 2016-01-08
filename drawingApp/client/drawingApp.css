@@ -1,0 +1,54 @@
+#homeJumbo {
+	background-image: url("6.jpg"); 
+	opacity: 0.8;
+	background-size: 100%;
+	height: 700px;
+	color: brown;
+}
+
+#homeJumbo h1 {
+	font-family: 'Cinzel Decorative', cursive;
+	padding-top: 180px;
+}
+
+.marginTop {
+	margin-top: 50px;
+}
+
+/* Featurettes
+------------------------- */
+.featurette-divider {
+  margin: 80px 0; /* Space out the Bootstrap <hr> more */
+}
+/* Thin out the marketing headings */
+.featurette-heading {
+  font-weight: 300;
+  line-height: 1;
+  letter-spacing: -1px;
+}
+
+/* Sticky footer styles
+-------------------------------------------------- */
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+}
+#footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #000000;
+}
+
+footer {
+	float: right;
+	padding-top: 10px;
+	padding-right: 60px;
+	color: white;
+}
