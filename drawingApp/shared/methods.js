@@ -4,9 +4,16 @@ Meteor.methods({
 		Points.remove({});
 	},
 
-	/*	for colors	*/
-	addColor:function(color){
-		Colors.insert(color);
-	}
+	/**	colors	*/
+	createUserForColors:function(colObj){
+		Colors.insert(colObj);
+	},
+	updateColors:function(selectedColors){
+		Colors.update(
+			{createdBy:this.userId},
+			{$set:
+				{colors:selectedColors}
+			}
+	)}
 
 });

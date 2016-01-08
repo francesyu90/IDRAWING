@@ -11,13 +11,13 @@
 <template name="toolbox">
 	<div class="container marginTop">
 		<div class="row">
-			<div class="col-md-3">
+			<div class="col-md-12">
 				{{> colorModal}}
 			</div>
 			<div class="col-md-9">
 				<!-- <br><br> -->
 				<h2>
-					Selected Colors <small> click a color box below if you want to use</small>
+					Selected Colors <small> here's a list of colors you can use in your drawing</small>
 				</h2>
 				{{#each selectedColors}}
 					<div class="selectedC" style="background-color:{{value}};"></div>
@@ -29,9 +29,54 @@
 
 <template name="colorModal">
 	<!-- Trigger the modal with a button -->
- 	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
- 		Add a New Color to Panel
- 	</button>
+ 	{{#if currentUser}}
+ 		<div class="btn-group" role="group" aria-label="...">
+	 		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
+		 		Add 
+		 	</button>
+		 	<button type="button" class="btn btn-default js-restore-colors">
+		 		Restore 
+		 	</button>
+		 	<button type="button" class="btn btn-default js-save-colors">
+		 		Save 
+		 	</button>
+		</div>
+		<div class="alert" role="alert">
+			<label>Instructions: </label>
+			<ul>
+				<li>
+					For the first time, you can get rid of the default system colors by adding your first colors
+				</li>
+				<li>
+					Click the Add button to add a new color for using this time 
+				</li>
+				<li>
+					Click the Restore button to get colors from the database
+				</li>
+				<li>
+					Click the Save button to save the newly created color set in the database
+				</li>
+				<li>
+					Warning: the current system does not support deletion, so please think carefully before you save colors to the database
+				</li>
+			</ul>
+		</div>
+ 	{{else}}
+ 		<div class="btn-group" role="group" aria-label="...">
+	 		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal" disabled="disabled">
+		 		Add 
+		 	</button>
+		 	<button type="button" class="btn btn-default" disabled="disabled">
+		 		Restore 
+		 	</button>
+		 	<button type="button" class="btn btn-default" disabled="disabled">
+		 		Save 
+		 	</button>
+		</div>
+		<div class="alert" role="alert">
+			Please log in to active the buttons!
+		</div>
+ 	{{/if}}
 
   	<!-- Modal -->
   	<div class="modal fade" id="myModal" role="dialog">

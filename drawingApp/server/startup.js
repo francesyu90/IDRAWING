@@ -1,20 +1,3 @@
-Meteor.publish("points", function(){
-
-	return Points.find({});
-
-});
-
-Meteor.publish("colors", function(){
-
-	return Colors.find({
-		$or: [
-			{createdBy:"system"},
-			{createdBy:this.userId}
-		]
-	});
-
-});
-
 if(!Colors.findOne()) {
 	console.log("inserting default color sets ...");
 	var creator = "system";

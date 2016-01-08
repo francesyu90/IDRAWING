@@ -4,10 +4,20 @@ Meteor.subscribe("colors");
 Template.toolbox.helpers({
 
 	selectedColors:function(){
-		if(!Colors.findOne()){
-			return;
+		var system = Session.get("system");
+		if(!Meteor.user()){
+			if(!system){
+				return;
+			}
+			return system.colors;
 		}
-		return Colors.find({});
+		var sessCols = Session.get("selectedColors");
+		var colUser = Colors.findOne({createdBy:Meteor.user()._id});
+		if(sessCols){
+			return sessCols;
+		}else{
+			return colUser.colors;
+		}
 	}
 
 });
