@@ -6,19 +6,27 @@
 
 <template name="start">
 	<div class="container marginTop">
-		{{> colorModal}}
-		<br><br>
-		<label>
-			Last selected color: 
-		</label>
-		{{selectedColor}}
+		<div class="row">
+			<div class="col-md-3">
+				{{> colorModal}}
+			</div>
+			<div class="col-md-9">
+				<!-- <br><br> -->
+				<h2>
+					Selected Colors <small> click a color box below if you want to use</small>
+				</h2>
+				{{#each selectedColors}}
+					<div class="selectedC" style="background-color:{{value}};"></div>
+				{{/each}}
+			</div>
+		</div>	
 	</div>
 </template>
 
 <template name="colorModal">
 	<!-- Trigger the modal with a button -->
  	<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
- 		Color Picker
+ 		Add a New Color to Panel
  	</button>
 
   	<!-- Modal -->
@@ -28,10 +36,10 @@
       		<div class="modal-content">
         		<div class="modal-header">
           			<button type="button" class="close" data-dismiss="modal">&times;</button>
-          			<h4 class="modal-title">Color Picker</h4>
+          			<h4 class="modal-title">Add a New Color</h4>
         		</div>
         		<div class="modal-body">
-        			<label for="colorpicker">find a color here</label>
+        			<label for="colorpicker">Color Picker</label>
           			<div class="input-group demo1">
 					    <input type="text" id="colorpicker" class="form-control" />
 					    <span class="input-group-addon"><i></i></span>
@@ -40,7 +48,7 @@
         		<div class="modal-footer">
         			<div class="btn-group" role="group" aria-label="...">
           				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          				<button type="button" class="btn btn-primary js-add-color" data-dismiss="modal">Add a Color</button>
+          				<button type="button" class="btn btn-primary js-add-color" data-dismiss="modal">Add to Panel</button>
           			</div>
         		</div>
       		</div>

@@ -4,3 +4,9 @@ Meteor.publish("points", function(){
 
 });
 
+Meteor.publish("colors", function(){
+
+	return Colors.find({});
+
+});
+

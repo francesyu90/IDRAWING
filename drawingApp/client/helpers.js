@@ -1,11 +1,13 @@
 Meteor.subscribe("points");
+Meteor.subscribe("colors");
 
 Template.start.helpers({
 
-	selectedColor:function(){
-		if(!Session.get("selectedColor"))
+	selectedColors:function(){
+		if(!Colors.findOne()){
 			return;
-		return Session.get("selectedColor");
+		}
+		return Colors.find({});
 	}
 
 });

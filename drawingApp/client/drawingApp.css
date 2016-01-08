@@ -68,5 +68,20 @@ footer {
   /*color: brown;*/
 }
 
+.selectedC {
+width: 40px;
+    height: 40px;
+    display: inline-block;
+    background-color: #ccc;
+    padding-top: 20px;
+    /*position: absolute;*/
+    /*left: 5px;*/
+    /*top: 5px;*/
+
+}
+
+
+
+
 
 
