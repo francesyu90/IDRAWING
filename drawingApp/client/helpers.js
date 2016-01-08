@@ -1,7 +1,7 @@
 Meteor.subscribe("points");
 Meteor.subscribe("colors");
 
-Template.start.helpers({
+Template.toolbox.helpers({
 
 	selectedColors:function(){
 		if(!Colors.findOne()){
