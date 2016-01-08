@@ -1,3 +1,6 @@
+
+/*  Home page */
+
 #homeJumbo {
 	background-image: url("6.jpg"); 
 	opacity: 0.8;
@@ -52,3 +55,18 @@ footer {
 	padding-right: 60px;
 	color: white;
 }
+
+
+
+
+
+/**   Get Started page   */
+#startJumbo {
+  background-image: url("6.jpg"); 
+  background-size: 100%;
+  height: 100px;
+  /*color: brown;*/
+}
+
+
+

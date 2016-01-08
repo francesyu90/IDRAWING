@@ -11,3 +11,17 @@ Router.route("/",function (){
 	});
 
 });
+
+Router.route("/start",function (){
+
+	this.render("startHeader",{
+		to:"navbar"
+	});
+	this.render("start",{
+		to:"main"
+	});
+	this.render("footer",{
+		to:"footer"
+	});
+
+});
