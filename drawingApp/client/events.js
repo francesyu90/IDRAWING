@@ -6,8 +6,14 @@ Template.colorModal.events({
 			value:value
 		}
 		var selectedColors;
+		var userId = Meteor.user()._id;
+		var colUser = Colors.findOne({createdBy:userId});
 		if(!Session.get("selectedColors")){
-			selectedColors = [];
+			if(!colUser){
+				selectedColors = [];
+			}else{
+				selectedColors = colUser.colors;
+			}
 		}else{
 			selectedColors = Session.get("selectedColors");
 			for(var i = 0; i < selectedColors.length; i++){
@@ -18,6 +24,7 @@ Template.colorModal.events({
 		}
 		selectedColors.push(color);
 		Session.set("selectedColors", selectedColors);
+		$("#colorpicker").val("");
 	},
 	"click .js-restore-colors":function(){
 		var colUser = Colors.findOne({createdBy:Meteor.user()._id});
@@ -35,4 +42,6 @@ Template.colorModal.events({
 	}
 
 });
+
+
 

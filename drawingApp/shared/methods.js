@@ -3,6 +3,9 @@ Meteor.methods({
 	clear:function(){
 		Points.remove({});
 	},
+	addPoint:function(point){
+		Points.insert(point);
+	},
 
 	/**	colors	*/
 	createUserForColors:function(colObj){
@@ -17,3 +20,4 @@ Meteor.methods({
 	)}
 
 });
+

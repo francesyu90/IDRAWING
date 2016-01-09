@@ -6,10 +6,13 @@
 
 <template name="start">
 	{{> toolbox}}
+	<br><br>
+	{{> nextBtnAtStart}}
 </template>
 
 <template name="toolbox">
-	<div class="container marginTop">
+	<div class="container marginTopI">
+
 		<div class="row">
 			<div class="col-md-12">
 				{{> colorModal}}
@@ -32,33 +35,39 @@
  	{{#if currentUser}}
  		<div class="btn-group" role="group" aria-label="...">
 	 		<button type="button" class="btn btn-default" data-toggle="modal" data-target="#myModal">
-		 		Add 
+		 		<label>
+		 			<span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+		 			Add
+		 		</label> 
 		 	</button>
 		 	<button type="button" class="btn btn-default js-restore-colors">
-		 		Restore 
+		 		<label>
+		 			<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+		 			Restore
+		 		</label> 
 		 	</button>
 		 	<button type="button" class="btn btn-default js-save-colors">
-		 		Save 
+		 		<label>
+		 			<span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span>
+		 			Save
+		 		</label> 
 		 	</button>
 		</div>
 		<div class="alert" role="alert">
 			<label>Instructions: </label>
 			<ul>
 				<li>
-					For the first time, you can get rid of the default system colors by adding your first colors
+					Click the Add button to add a new color for using this time. 
 				</li>
 				<li>
-					Click the Add button to add a new color for using this time 
+					Click the Restore button to get colors from the database.
 				</li>
 				<li>
-					Click the Restore button to get colors from the database
+					Click the Save button to save the newly created color set in the database.
 				</li>
-				<li>
-					Click the Save button to save the newly created color set in the database
-				</li>
-				<li>
-					Warning: the current system does not support deletion, so please think carefully before you save colors to the database
-				</li>
+				<!-- <li>
+					Warning: the current system does not support deletion, so please think carefully before you save colors to the database!
+				</li> -->
 			</ul>
 		</div>
  	{{else}}
@@ -74,7 +83,7 @@
 		 	</button>
 		</div>
 		<div class="alert" role="alert">
-			Please log in to active the buttons!
+			Warning: Please log in to active the buttons!
 		</div>
  	{{/if}}
 
@@ -97,10 +106,33 @@
         		<div class="modal-footer">
         			<div class="btn-group" role="group" aria-label="...">
           				<button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-          				<button type="button" class="btn btn-primary js-add-color" data-dismiss="modal">Add to Panel</button>
+          				<button type="button" class="btn btn-primary js-add-color">Confirm Add</button>
           			</div>
         		</div>
       		</div>
       	</div>
   	</div>
 </template>
+
+
+<template name="nextBtnAtStart">
+	<div class="container">
+		<a class="btn btn-default" href="/draw" role="button" id="nextBtnAtStart">Next</a>
+	</div>
+</template>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

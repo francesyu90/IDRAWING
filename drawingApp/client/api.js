@@ -1,5 +1,4 @@
 Router.route("/",function (){
-
 	this.render("navbar",{
 		to:"navbar"
 	});
@@ -9,7 +8,6 @@ Router.route("/",function (){
 	this.render("footer",{
 		to:"footer"
 	});
-
 });
 
 Router.route("/start",function (){
@@ -19,15 +17,15 @@ Router.route("/start",function (){
 		Session.set("system", system);
 	}
 	if(Meteor.user()){
-		var colUser = Colors.findOne({createdBy:Meteor.user()._id});
+		var colUser = Colors.find({createdBy:Meteor.user()._id});
 		if(!colUser){
 			if(!Session.get("system")){
 				return;
 			}
-			system = Session.get("system");
+			var colors = [];
 			var colObj = {
 				createdBy:Meteor.user()._id,
-				colors:system.colors
+				colors:[]
 			};
 			Meteor.call("createUserForColors", colObj);
 		}else{
@@ -43,5 +41,20 @@ Router.route("/start",function (){
 	this.render("footer",{
 		to:"footer"
 	});
-
 });
+
+Router.route("/draw",function (){
+	this.render("startHeader",{
+		to:"navbar"
+	});
+	this.render("draw",{
+		to:"main"
+	});
+	this.render("footer",{
+		to:"footer"
+	});
+});
+
+
+
+

@@ -1,0 +1,38 @@
+<template name="draw">
+	{{> toolboxI}}
+	{{> drawPanel}}
+</template>
+
+<template name="toolboxI">
+	<div class="container marginTopI marginBtmI">
+		<div class="row">
+			<div class="btn-toolbar" role="toolbar" aria-label="...">
+				<div class="btn-group backgroundCol" role="group" aria-label="...">
+					<a href="/start" type="button" class="btn btn-default colorBtn backgroundCol btns">
+						<span class="glyphicon glyphicon-chevron-left" aria-hidden="true"></span>
+				  		<label>Return</label>
+				  	</a>
+					<a type="button" class="btn btn-default colorBtn backgroundCol js-clear-points btns">
+						<span class="glyphicon glyphicon-refresh" aria-hidden="true"></span>
+				  		<label>Start/Reset</label>
+				  	</a>
+				</div>
+				<div class="btn-group backgroundCol" role="group" aria-label="...">
+				  	{{#each selectedColors}}
+				  		<a type="button" class="btn colorBtn backgroundCol">
+				  			<div class="selectedC js-set-color" style="background-color:{{value}};" id="{{value}}"></div>
+				  		</a>
+				  	{{/each}}
+				</div>
+			</div>
+		</div>
+	</div>
+</template>
+
+<template name="drawPanel">
+	<div class="container marginBtmII">
+		<div id="canvas">
+			
+		</div>
+	</div>
+</template>

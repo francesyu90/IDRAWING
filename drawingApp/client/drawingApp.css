@@ -18,6 +18,18 @@
 	margin-top: 50px;
 }
 
+.marginTopI {
+  margin-top: 85px;
+}
+
+.marginBtmI {
+  margin-bottom: 120px;
+}
+
+.marginBtmII {
+  margin-bottom: 200px;
+}
+
 /* Featurettes
 ------------------------- */
 .featurette-divider {
@@ -79,6 +91,38 @@ width: 40px;
     /*top: 5px;*/
 
 }
+
+#nextBtnAtStart {
+  float: right;
+}
+
+.backgroundCol {
+  background-color: black;
+  /*width: 90px;*/
+}
+
+.colorBtn {
+  border-style: solid;
+  border-width: 1px;
+  border-color: white;
+  color: white;
+}
+
+.btns {
+  /*width: 75px;*/
+  height: 65px;
+  padding-top: 20px;
+}
+
+#canvas {
+  width: inherit;
+  height:inherit;
+  border-style: solid;
+  border-width: 1px;
+  border-color: black;
+}
+
+
 
 
 
