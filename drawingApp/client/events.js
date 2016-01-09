@@ -52,3 +52,6 @@ Template.colorModal.events({
 
 
 
+
+
+

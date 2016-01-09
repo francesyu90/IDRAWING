@@ -59,7 +59,15 @@ Template.drawPanel.events({
 	    if (Session.get("draw")){
 	    	markPoint();
 	    }
-  	}
+  	},
+
+
+    "change .js-select-brush-size":function(event){
+      lastX = 0;
+      lastY = 0;
+      thickness = event.currentTarget.value;
+    }
 
 });
+
 

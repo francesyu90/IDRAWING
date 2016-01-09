@@ -18,7 +18,6 @@ Canvas = function(){
 		}
 		if(svg){
 			svg.selectAll("line").data(data, function(d){
-				console.log(d);
 				return d._id;
 			})
 			.enter().append("line")
