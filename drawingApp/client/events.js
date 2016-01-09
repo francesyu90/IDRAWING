@@ -1,21 +1,28 @@
 Template.colorModal.events({
 
 	"click .js-add-color":function(){
+		//	only allow logged in users to add new color
+		if(!Meteor.user()){
+			return;
+		}
 		var value = $("#colorpicker").val();
 		var color = {
 			value:value
 		}
 		var selectedColors;
-		var userId = Meteor.user()._id;
-		var colUser = Colors.findOne({createdBy:userId});
-		if(!Session.get("selectedColors")){
-			if(!colUser){
-				selectedColors = [];
-			}else{
-				selectedColors = colUser.colors;
+		var createdBy = Meteor.user()._id;
+		var colHistory = Colors.findOne({createdBy:createdBy});
+		if(!colHistory && !Session.get("selectedColors")){
+			selectedColors = [];
+		}else if(Session.get("selectedColors")){
+			selectedColors = Session.get("selectedColors");
+			for(var i = 0; i < selectedColors.length; i++){
+				if(selectedColors[i].value == value){
+					return;
+				}
 			}
 		}else{
-			selectedColors = Session.get("selectedColors");
+			selectedColors = colHistory.colors;
 			for(var i = 0; i < selectedColors.length; i++){
 				if(selectedColors[i].value == value){
 					return;
@@ -34,10 +41,10 @@ Template.colorModal.events({
 		Session.set("selectedColors", colUser.colors);
 	},
 	"click .js-save-colors":function(){
-		var selectedColors = Session.get("selectedColors");
-		if(!selectedColors){
+		if(!Session.get("selectedColors")){
 			return;
 		}
+		var selectedColors = Session.get("selectedColors");
 		Meteor.call("updateColors", selectedColors);
 	}
 

@@ -4,6 +4,8 @@ var strokeWidth = 1;
 var thickness=1;
 var strokeColor = "black";
 
+
+
 var markPoint = function(){
 	var offset = $('#canvas').offset();
 	if (lastX == 0){// check that x was something not top-left. should probably set this to -1

@@ -8,16 +8,21 @@ Meteor.methods({
 	},
 
 	/**	colors	*/
-	createUserForColors:function(colObj){
-		Colors.insert(colObj);
-	},
 	updateColors:function(selectedColors){
-		Colors.update(
-			{createdBy:this.userId},
-			{$set:
-				{colors:selectedColors}
-			}
-	)}
+		if(!this.userId){
+			return;
+		}
+		var colUser = Colors.findOne({createdBy:this.userId});
+		if(!colUser){
+			var newColUser = {
+				createdBy:this.userId,
+				colors:selectedColors
+			};
+			Colors.insert(newColUser);
+		}else{
+			Colors.update({createdBy:this.userId}, {$set: {colors:selectedColors}});
+		}
+	}
 
 });
 
