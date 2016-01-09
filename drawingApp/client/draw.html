@@ -1,10 +1,16 @@
 <template name="draw">
-	{{> toolboxI}}
-	{{> drawPanel}}
+	{{#if currentUser}}
+		{{> toolboxI}}
+		{{> drawPanel}}
+	{{else}}
+		<div class="container alert">
+			Please log in for more features!
+		</div>
+	{{/if}}
 </template>
 
 <template name="toolboxI">
-	<div class="container marginTopI marginBtmI">
+	<div class="container marginTopI">
 		<div class="row">
 			<div class="btn-toolbar" role="toolbar" aria-label="...">
 				<div class="btn-group backgroundCol" role="group" aria-label="...">
@@ -26,11 +32,28 @@
 				</div>
 			</div>
 		</div>
+		<div class="alert" role="alert">
+			<label>Instructions: </label>
+			<ul>
+				<li>
+					Click the Return button to go back to the previous page.
+				</li>
+				<li>
+					Click the Start/Reset button to open up or reset the canvas
+				</li>
+				<li>
+					Click any button with a color to use the corresponding color
+				</li>
+				<!-- <li>
+					Warning: the current system does not support deletion, so please think carefully before you save colors to the database!
+				</li> -->
+			</ul>
+		</div>
 	</div>
 </template>
 
 <template name="drawPanel">
-	<div class="container marginBtmII">
+	<div class="container marginBtmII marginTop">
 		<div id="canvas">
 			
 		</div>
