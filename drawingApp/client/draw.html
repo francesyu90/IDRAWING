@@ -55,7 +55,17 @@
 <template name="drawPanel">
 	<div class="container marginBtmII">
 		<div class="row">
-			<div class="col-md-offset-8 col-md-3">
+			<div class="col-md-offset-6 col-md-3">
+				<div class="form-group">
+                	<label for="sljv" class="">Choose Stroke-linejoin Values</label>
+                	<select class="form-control js-select-stroke-linejoin" id="sljv">
+                        {{#each strokeLinejoinValues}}
+                        	<option>{{name}}</option>
+                        {{/each}}
+                  	</select>
+                </div>
+			</div>
+			<div class="col-md-3">
 				<div class="form-group">
                 	<label for="size" class="">Choose Brush Size [range: 1 - 50]</label>
                 	<select class="form-control js-select-brush-size" id="size">

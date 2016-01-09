@@ -39,9 +39,11 @@ Canvas = function(){
       		.attr("stroke", function (d) { 
       			return d.c; 
       		})
-      		.attr("stroke-linejoin", "round");
+      		// .attr("stroke-linejoin", "round");
+      		.attr("stroke-linejoin",function(d){
+      			return d.sv;
+      		});
 		}
 	}
 }
 
-Session.set("CanvasClass", Canvas);

@@ -45,6 +45,14 @@ Template.drawPanel.helpers({
 			});
 		}
 		return brushSizes;
+	},
+	strokeLinejoinValues:function(){
+		return [
+			{name:"round"},
+			{name:"miter"},
+			{name:"bevel"},
+			{name:"inherit"}
+		];
 	}
 
 });

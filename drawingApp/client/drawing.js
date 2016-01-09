@@ -3,6 +3,7 @@ var lastY=0;
 var strokeWidth = 1;
 var thickness=1;
 var strokeColor = "black";
+var strokeLinejoinValue = "round";
 
 
 
@@ -19,6 +20,7 @@ var markPoint = function(){
         y1: lastY,
         w: thickness,
         c: strokeColor,
+        sv: strokeLinejoinValue
     }
     Meteor.call("addPoint", point);
     lastX = (event.pageX - offset.left);
@@ -60,12 +62,16 @@ Template.drawPanel.events({
 	    	markPoint();
 	    }
   	},
-
-
     "change .js-select-brush-size":function(event){
       lastX = 0;
       lastY = 0;
       thickness = event.currentTarget.value;
+    },
+
+    "change .js-select-stroke-linejoin":function(event){
+      lastX = 0;
+      lastY = 0;
+      strokeLinejoinValue = event.currentTarget.value;
     }
 
 });
