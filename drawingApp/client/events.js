@@ -8,8 +8,6 @@ Template.colorModal.events({
 		var selectedColors;
 		if(!Session.get("selectedColors")){
 			selectedColors = [];
-			selectedColors.push(color);
-			Session.set("selectedColors", selectedColors);
 		}else{
 			selectedColors = Session.get("selectedColors");
 			for(var i = 0; i < selectedColors.length; i++){
@@ -17,19 +15,9 @@ Template.colorModal.events({
 					return;
 				}
 			}
-			var colUser = Colors.findOne({createdBy:Meteor.user()._id});
-			if(!colUser){
-				return;
-			}
-			selectedColors = colUser.colors;
-			for(var i = 0; i < selectedColors.length; i++){
-				if(selectedColors[i].value == value){
-					return;
-				}
-			}
-			selectedColors.push(color);
-			Session.set("selectedColors", selectedColors);
 		}
+		selectedColors.push(color);
+		Session.set("selectedColors", selectedColors);
 	},
 	"click .js-restore-colors":function(){
 		var colUser = Colors.findOne({createdBy:Meteor.user()._id});

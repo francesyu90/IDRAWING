@@ -30,6 +30,8 @@ Router.route("/start",function (){
 				colors:system.colors
 			};
 			Meteor.call("createUserForColors", colObj);
+		}else{
+			Session.set("selectedColors", colUser.colors);
 		}
 	}
 	this.render("startHeader",{
