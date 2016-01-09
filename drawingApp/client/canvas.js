@@ -3,7 +3,7 @@ Canvas = function(){
 	var svg;
 	var createSVG = function(){
 		svg = d3.select("#canvas").append("svg")
-			.attr("width", 800)
+			.attr("width", 1300)
 			.attr("height", 600);
 	}
 	createSVG();
