@@ -39,9 +39,28 @@ Canvas = function(){
       		.attr("stroke", function (d) { 
       			return d.c; 
       		})
+      		.attr("type", function (d) { 
+      			return d.l; 
+      		})
       		// .attr("stroke-linejoin", "round");
       		.attr("stroke-linejoin",function(d){
       			return d.sv;
+      		});
+		}
+	}
+	self.drawCircle = function(data){
+		if(data.length < 1){
+			self.clear();
+			return;
+		}
+		if(svg){
+			svg.selectAll('circle').data(data, function(d) { return d._id; })
+	        .enter().append('circle')
+	        .attr('r', 10)
+	        .attr('cx', function (d) { return d.x; })
+	        .attr('cy', function (d) { return d.y; })
+	        .style("fill", function (d) { 
+      			return d.c; 
       		});
 		}
 	}

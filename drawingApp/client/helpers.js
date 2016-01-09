@@ -53,6 +53,12 @@ Template.drawPanel.helpers({
 			{name:"bevel"},
 			{name:"inherit"}
 		];
+	},
+	drawingTypes:function(){
+		return [
+			{type:"line"},
+			{type: "circle"}
+		];
 	}
 
 });

@@ -55,9 +55,19 @@
 <template name="drawPanel">
 	<div class="container marginBtmII">
 		<div class="row">
-			<div class="col-md-offset-6 col-md-3">
+			<div class="col-md-offset-3 col-md-3">
 				<div class="form-group">
-                	<label for="sljv" class="">Choose Stroke-linejoin Values</label>
+                	<label for="type" class="">Choose Drawing Type</label>
+                	<select class="form-control js-select-drawing-type" id="type">
+                        {{#each drawingTypes}}
+                        	<option>{{type}}</option>
+                        {{/each}}
+                  	</select>
+                </div>
+			</div>
+			<div class="col-md-3">
+				<div class="form-group">
+                	<label for="sljv" class="">Choose Stroke-linejoin Value</label>
                 	<select class="form-control js-select-stroke-linejoin" id="sljv">
                         {{#each strokeLinejoinValues}}
                         	<option>{{name}}</option>
