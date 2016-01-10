@@ -40,7 +40,16 @@ Template.toolboxI.events({
 		lastX = 0;
 		lastY = 0;
 		strokeColor = color;
-	}
+	},
+  "click .js-export-graph":function(event){
+    var html = d3.select("svg")
+        .attr("version", 1.1)
+        .attr("xmlns", "http://www.w3.org/2000/svg")
+        .node().parentNode.innerHTML;
+    var imgsrc = 'data:image/svg+xml;base64,'+ btoa(html);
+    var img = '<img src="'+imgsrc+'">'; 
+    d3.select("#display").html(img);
+  }
 
 });
 
@@ -74,6 +83,7 @@ Template.drawPanel.events({
     },
 
     "change .js-select-drawing-type":function(event){
+      console.log(event.currentTarget.value);
       lastX = 0;
       lastY = 0;
       drawingType = event.currentTarget.value;
